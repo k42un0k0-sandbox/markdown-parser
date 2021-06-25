@@ -5,13 +5,9 @@ export const katexExt = {
   name: "katex",
   renderer: (token: any) => {
     try {
-      let html = katex.renderToString(token.text);
-      if (token.inline == false) {
-        html = html.replace(
-          /class="katex"/g,
-          'class="katex katex-block" style="display: block;"'
-        );
-      }
+      let html = katex.renderToString(token.text, {
+        displayMode: token.displayMode,
+      });
 
       return html;
     } catch (e: unknown) {
@@ -30,6 +26,7 @@ export const katexExt = {
         const token = {
           type: "katex",
           raw: expr,
+          displayMode: true,
           text: expr.slice(2, expr.length - 2),
         };
         if (b.find((b) => b.raw === token.raw)) return;
@@ -44,7 +41,6 @@ export const katexExt = {
       const token = {
         type: "katex",
         raw: expr,
-        inline: true,
         text: expr.slice(1, expr.length - 1),
       };
       if (b.find((b) => b.raw === token.raw)) return;

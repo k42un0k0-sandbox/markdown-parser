@@ -1,2 +1,3 @@
 import md from "markdown-it";
-export const markdownIt = (s: string) => md().render(s);
+import { katexExt } from "./katex";
+export const markdownIt = (s: string) => md().use(katexExt).render(s);

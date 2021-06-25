@@ -166,7 +166,7 @@ type Rule = {
   pre?: (str: string, outerSpace: boolean | undefined, beg: number) => boolean;
   post?: (str: string, outerSpace: boolean | undefined, end: number) => boolean;
 };
-const rules = {
+export const rules = {
   inline: [
     {
       name: "math_inline_double",

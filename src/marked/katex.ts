@@ -22,7 +22,6 @@ export const katexExt = {
     let blockExprArray = a.match(blockRegex);
     if (blockExprArray != null) {
       for (let expr of blockExprArray) {
-        console.log(expr);
         const token = {
           type: "katex",
           raw: expr,
@@ -37,7 +36,6 @@ export const katexExt = {
     let inlineExprArray = a.match(inlineRegex);
     if (inlineExprArray == null) return;
     for (let expr of inlineExprArray) {
-      console.log(expr);
       const token = {
         type: "katex",
         raw: expr,

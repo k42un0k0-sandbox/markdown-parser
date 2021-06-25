@@ -1,4 +1,3 @@
-import md from "marked";
 import katex from "katex";
 
 export const katexExt = {

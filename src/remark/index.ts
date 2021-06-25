@@ -2,7 +2,7 @@ import Remark from "remark";
 import gfm from "remark-gfm";
 import math from "remark-math";
 import remark2rehype from "remark-rehype";
-import katex from "rehype-katex";
+// import katex from "rehype-katex";
 import stringify from "rehype-stringify";
 import { ampMathml } from "./amp-mathml";
 

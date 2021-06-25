@@ -1,5 +1,4 @@
 import Remark from "remark";
-import html from "remark-html";
 import gfm from "remark-gfm";
 import math from "remark-math";
 import remark2rehype from "remark-rehype";

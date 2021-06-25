@@ -4,14 +4,14 @@ import visit from "unist-util-visit";
 export function ampMathml() {
   return transformer;
 
-  function transformToJsxNode(
+  function transformToHtmlNode(
     parent: Parent | undefined,
     index: number,
     value: string,
     position: Position | undefined
   ) {
     const newNode = {
-      type: "jsx",
+      type: "html",
       value: value,
       position: position,
     };
@@ -27,7 +27,7 @@ export function ampMathml() {
       parent: Parent | undefined
     ): void {
       const value = `<amp-mathml layout="container" data-formula="\\[${node.value}\\]" />`;
-      transformToJsxNode(parent, index, value, node.position);
+      transformToHtmlNode(parent, index, value, node.position);
     }
 
     visit(ast, "inlineMath", inlineMathVistor);
@@ -41,7 +41,7 @@ export function ampMathml() {
                             inline
                             data-formula="\\[${node.value}\\]"
                             />`;
-      transformToJsxNode(parent, index, value, node.position);
+      transformToHtmlNode(parent, index, value, node.position);
     }
   }
 }
